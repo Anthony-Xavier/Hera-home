@@ -1,0 +1,183 @@
+@use "../../styles/variables" as *;
+
+.diferenciais {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.5rem;
+  gap: 2rem;
+
+  &__titulos {
+    line-height: 1.2;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+
+    &--h3 {
+      font-family: $font-primary;
+      font-weight: 400;
+      font-size: 24px;
+      color: $text-accent;
+    }
+    span {
+      color: $text-accent;
+    }
+
+    &--h2 {
+      font-family: $font-secondary;
+      font-weight: 400;
+      font-size: 32px;
+      color: $text-primary;
+    }
+  }
+
+  &__divisor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+  }
+
+  &__divisor-linha {
+    width: 32px;
+    height: 1px;
+    background-color: $text-accent;
+  }
+
+  &__divisor-losango {
+    width: 7px;
+    height: 7px;
+    background-color: $color-verde-cipo;
+    transform: rotate(45deg);
+  }
+
+  &__lista {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 260px;
+    text-align: center;
+    cursor: pointer;
+    padding: 2.5rem 1.5rem;
+    border-radius: 12px;
+    background-color: $color-white;
+    box-shadow: 0 2px 10px rgba($color-primary, 0.06);
+    transition: box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: diferenciais-surgir 0.6s ease backwards;
+
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        animation-delay: $i * 0.12s;
+      }
+    }
+
+    &:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 16px 30px rgba($text-accent, 0.22);
+
+      .diferenciais__item-circulo {
+        background-color: $text-accent;
+        color: $color-white;
+        transform: scale(1.12) rotate(-8deg);
+      }
+
+      .diferenciais__item-titulo {
+        color: $text-accent;
+      }
+    }
+  }
+
+  &__item-circulo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid $text-accent;
+    background-color: rgba($text-accent, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $text-accent;
+    transition: background-color 0.35s ease, color 0.35s ease,
+      transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  &__item-titulo {
+    font-family: $font-secondary;
+    font-weight: 400;
+    font-size: 18px;
+    color: $color-marrom;
+    margin: 0;
+    transition: color 0.3s ease;
+  }
+}
+
+@keyframes diferenciais-surgir {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 767px) {
+  .diferenciais {
+    padding: 1.5rem 1.25rem;
+    gap: 1.25rem;
+
+    &__titulos {
+      &--h3 {
+        font-size: 18px;
+      }
+
+      &--h2 {
+        font-size: 24px;
+      }
+    }
+
+    &__lista {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    &__item {
+      width: 100%;
+      max-width: 340px;
+      padding: 1.75rem 1.25rem;
+    }
+
+    &__item-circulo {
+      width: 42px;
+      height: 42px;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &__item-titulo {
+      font-size: 16px;
+    }
+  }
+}

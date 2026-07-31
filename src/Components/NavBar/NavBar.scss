@@ -9,6 +9,8 @@
   align-items: center;
   padding: 1.2rem 3rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: $color-secondary;
+  border-radius: 6px;
 
   &__titulo {
     margin: 0;
