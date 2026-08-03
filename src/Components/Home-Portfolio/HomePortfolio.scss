@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 1.5rem 0;
+  padding: 2rem 1.5rem 5rem;
   margin-top: 4rem;
   background-color: $color-white;
   border-radius: 100px 100px 0px 0px;
@@ -20,16 +20,28 @@
     position: absolute;
     top: 0.4rem;
     right: 3rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
     font-family: $font-secondary;
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     text-decoration: none;
     color: $text-primary;
     transition: color 0.2s ease;
 
+    &::after {
+      content: "→";
+      transition: transform 0.25s ease;
+    }
+
     &:hover {
       color: $text-accent;
+
+      &::after {
+        transform: translateX(4px);
+      }
     }
   }
 
@@ -42,7 +54,8 @@
 
     &--h3 {
       font-weight: 400;
-      font-size: 24px;
+      font-size: 18px;
+      letter-spacing: 0.15em;
       color: $text-accent;
     }
     span {
@@ -157,6 +170,8 @@
 
 @media (max-width: 767px) {
   .home-portfolio {
+    padding-bottom: 3rem;
+
     &__card-wrapper {
       height: 100vh;
       margin-bottom: 3rem;

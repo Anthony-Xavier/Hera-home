@@ -11,9 +11,13 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   background-color: $color-secondary;
   border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(27, 21, 15, 0.06);
 
   &__titulo {
     margin: 0;
+    font-size: 1.5rem;
+    letter-spacing: 0.04em;
+    color: $text-accent;
   }
 
   &__nav {
@@ -46,6 +50,14 @@
 
       &:hover::after {
         transform: scaleX(1);
+      }
+
+      &.active {
+        color: $text-accent;
+
+        &::after {
+          transform: scaleX(1);
+        }
       }
     }
   }

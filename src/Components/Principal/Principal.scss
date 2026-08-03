@@ -42,6 +42,7 @@
     line-height: 1.2;
     margin: 0;
     color: $color-secondary;
+    animation: principal-surgir 0.8s ease backwards;
 
     span {
       color: $text-accent;
@@ -55,6 +56,7 @@
     color: $color-secondary;
     margin: 2rem 0 0;
     max-width: 460px;
+    animation: principal-surgir 0.8s ease 0.15s backwards;
   }
 
   &__botoes {
@@ -66,28 +68,32 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    animation: principal-surgir 0.8s ease 0.3s backwards;
   }
 
   &__botao {
     font-family: $font-secondary;
     font-size: 20px;
     padding: 0.9rem 1.8rem;
-    border-radius: 2px;
+    border-radius: 999px;
     cursor: pointer;
     border: 1px solid transparent;
+    box-shadow: 0 12px 24px -10px rgba(27, 21, 15, 0.35);
     transition:
       transform 0.25s ease,
+      box-shadow 0.25s ease,
       opacity 0.2s ease;
 
     &:hover {
-      transform: scale(1.04);
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 18px 30px -10px rgba(27, 21, 15, 0.45);
 
       @media (min-width: 768px) {
-        transform: scale(1.07);
+        transform: translateY(-3px) scale(1.07);
       }
 
       @media (min-width: 1440px) {
-        transform: scale(1.12);
+        transform: translateY(-3px) scale(1.12);
       }
     }
 
@@ -101,6 +107,17 @@
       color: $color-primary;
       border-color: $color-secondary;
     }
+  }
+}
+
+@keyframes principal-surgir {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
