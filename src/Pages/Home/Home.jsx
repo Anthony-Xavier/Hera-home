@@ -6,6 +6,7 @@ import Diferenciais from "../../Components/Diferenciais/Diferenciais";
 import HomePortfolio from "../../Components/Home-Portfolio/HomePortfolio";
 import HomeBlog from "../../Components/Home-Blog/HomeBlog";
 import Depoimento from "../../Components/Depoimento/Depoimento";
+import Diferencas from "../../Components/Diferencas/Diferencas";
 const Home = () => {
   return (
     <>
@@ -15,6 +16,7 @@ const Home = () => {
       <HomePortfolio />
       <HomeBlog />
       <Depoimento />
+      <Diferencas />
     </>
   );
 };
