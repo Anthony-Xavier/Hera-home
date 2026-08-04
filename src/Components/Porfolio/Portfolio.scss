@@ -1,0 +1,188 @@
+@use "../../styles/variables" as *;
+
+.portfolio {
+  width: 100%;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 6rem;
+  background-color: $color-white;
+
+  &__cabecalho {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__titulos {
+    margin: 0;
+    font-family: $font-primary;
+    font-weight: 400;
+
+    &--h3 {
+      font-size: 15px;
+      letter-spacing: 0.2em;
+      color: $text-accent;
+    }
+
+    &--h2 {
+      margin-top: 0.75rem;
+      font-size: 40px;
+      color: $text-primary;
+    }
+  }
+
+  &__subtitulo {
+    margin: 1.25rem 0 0;
+    font-family: $font-secondary;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba($text-primary, 0.7);
+  }
+
+  &__filtros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 3rem auto 0;
+    max-width: 900px;
+  }
+
+  &__filtro-botao {
+    font-family: $font-secondary;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba($text-primary, 0.15);
+    background-color: transparent;
+    color: $text-primary;
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
+
+    &:hover {
+      border-color: $text-accent;
+      color: $text-accent;
+    }
+
+    &--ativo {
+      background-color: rgba($background-primary, 0.25);
+      border-color: $text-accent;
+      color: $text-accent;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-auto-flow: column;
+    grid-auto-columns: 23%;
+    column-gap: 1.5rem;
+    row-gap: 2.5rem;
+    margin-top: 3.5rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: auto;
+    cursor: grab;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    user-select: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &--arrastando {
+      cursor: grabbing;
+      scroll-behavior: auto;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__card-imagem-wrapper {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: $color-secondary;
+  }
+
+  &__card-imagem {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  &__card-ambiente {
+    margin-top: 1rem;
+    font-family: $font-secondary;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: $text-accent;
+  }
+
+  &__card-titulo {
+    margin: 0.35rem 0 0;
+    font-family: $font-primary;
+    font-weight: 400;
+    font-size: 20px;
+    color: $text-primary;
+  }
+
+  &__card-material {
+    margin-top: 0.25rem;
+    font-family: $font-secondary;
+    font-size: 14px;
+    color: rgba($text-primary, 0.6);
+  }
+}
+
+@media (max-width: 1024px) {
+  .portfolio {
+    &__grid {
+      grid-auto-columns: 32%;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolio {
+    padding: 3.5rem 1.25rem 4rem;
+
+    &__titulos--h2 {
+      font-size: 28px;
+    }
+
+    &__filtros {
+      justify-content: flex-start;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      padding-bottom: 0.25rem;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    &__filtro-botao {
+      flex: none;
+    }
+
+    &__grid {
+      grid-auto-columns: 72%;
+      column-gap: 1rem;
+      row-gap: 1.75rem;
+    }
+  }
+}

@@ -7,18 +7,16 @@ import HomePortfolio from "../../Components/Home-Portfolio/HomePortfolio";
 import HomeBlog from "../../Components/Home-Blog/HomeBlog";
 import Depoimento from "../../Components/Depoimento/Depoimento";
 import Diferencas from "../../Components/Diferencas/Diferencas";
-import Footer from "../../Components/Footer/Footer";
+
 const Home = () => {
   return (
     <>
-      <NavBar />
       <Principal />
       <Diferenciais />
       <HomePortfolio />
       <HomeBlog />
       <Depoimento />
       <Diferencas />
-      <Footer />
     </>
   );
 };
