@@ -1,6 +1,6 @@
 import "./Portfolio.scss";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 
 import imgCozinha from "../../assets/img/Cozinha-menu.png";
 import imgQuarto from "../../assets/img/Quarto-menu.png";

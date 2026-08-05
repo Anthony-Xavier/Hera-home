@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import "./Loja.scss";
 
 const IconeImagem = () => (
@@ -45,6 +45,78 @@ const produtos = [
   { id: 16, categoria: "disponiveis-showroom", nome: "Mesa lateral Delfos", material: "Imbuia" },
   { id: 17, categoria: "disponiveis-showroom", nome: "Banco Rústico", material: "Freijó" },
 ];
+
+const LinhaProdutos = ({ produtos }) => {
+  const gridRef = useRef(null);
+  const arrastoRef = useRef({ ativo: false, inicioX: 0, scrollInicial: 0, moveu: false });
+
+  const handlePointerDown = (e) => {
+    const grid = gridRef.current;
+    if (!grid) return;
+
+    arrastoRef.current = {
+      ativo: true,
+      inicioX: e.pageX,
+      scrollInicial: grid.scrollLeft,
+      moveu: false,
+    };
+    grid.setPointerCapture(e.pointerId);
+    grid.classList.add("loja__grid--arrastando");
+  };
+
+  const handlePointerMove = (e) => {
+    const grid = gridRef.current;
+    const arrasto = arrastoRef.current;
+    if (!grid || !arrasto.ativo) return;
+
+    const delta = e.pageX - arrasto.inicioX;
+    if (Math.abs(delta) > 5) arrasto.moveu = true;
+    grid.scrollLeft = arrasto.scrollInicial - delta;
+  };
+
+  const handlePointerUp = (e) => {
+    const grid = gridRef.current;
+    arrastoRef.current.ativo = false;
+    grid?.classList.remove("loja__grid--arrastando");
+    try {
+      grid?.releasePointerCapture(e.pointerId);
+    } catch {
+      // ponteiro já liberado
+    }
+  };
+
+  const handleClickCapture = (e) => {
+    if (arrastoRef.current.moveu) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  };
+
+  return (
+    <div
+      className="loja__grid"
+      ref={gridRef}
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerUp}
+      onPointerLeave={handlePointerUp}
+      onClickCapture={handleClickCapture}
+    >
+      {produtos.map((produto) => (
+        <div className="loja__card" key={produto.id}>
+          <div className="loja__card-imagem">
+            <IconeImagem />
+          </div>
+          <h4 className="loja__card-titulo">{produto.nome}</h4>
+          <span className="loja__card-material">{produto.material}</span>
+          <button type="button" className="loja__card-botao">
+            ESPIAR
+          </button>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 const Loja = () => {
   const [categoriasAtivas, setCategoriasAtivas] = useState([]);
@@ -117,20 +189,7 @@ const Loja = () => {
                   </span>
                 </div>
 
-                <div className="loja__grid">
-                  {produtosDaCategoria.map((produto) => (
-                    <div className="loja__card" key={produto.id}>
-                      <div className="loja__card-imagem">
-                        <IconeImagem />
-                      </div>
-                      <h4 className="loja__card-titulo">{produto.nome}</h4>
-                      <span className="loja__card-material">{produto.material}</span>
-                      <button type="button" className="loja__card-botao">
-                        ESPIAR
-                      </button>
-                    </div>
-                  ))}
-                </div>
+                <LinhaProdutos produtos={produtosDaCategoria} />
               </div>
             );
           })}
