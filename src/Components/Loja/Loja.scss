@@ -212,6 +212,132 @@
     }
   }
 
+  &__modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.55);
+  }
+
+  &__modal {
+    display: flex;
+    width: 100%;
+    max-width: 880px;
+    max-height: 90vh;
+    background-color: $color-white;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  }
+
+  &__modal-imagem {
+    flex: 0 0 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-secondary;
+    color: rgba($text-primary, 0.25);
+
+    svg {
+      width: 64px;
+      height: 64px;
+    }
+  }
+
+  &__modal-conteudo {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    padding: 3rem 3rem 2.5rem;
+    overflow-y: auto;
+  }
+
+  &__modal-fechar {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    line-height: 1;
+    color: $text-primary;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      color: $text-accent;
+    }
+  }
+
+  &__modal-eyebrow {
+    margin: 0;
+    font-family: $font-secondary;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    color: $text-accent;
+  }
+
+  &__modal-titulo {
+    margin: 0.5rem 0 0;
+    font-family: $font-primary;
+    font-weight: 400;
+    font-size: 32px;
+    color: $text-primary;
+  }
+
+  &__modal-material {
+    display: block;
+    margin-top: 0.35rem;
+    font-family: $font-secondary;
+    font-size: 15px;
+    color: rgba($text-primary, 0.6);
+  }
+
+  &__modal-secao-titulo {
+    margin: 2rem 0 0;
+    font-family: $font-secondary;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: $text-primary;
+  }
+
+  &__modal-descricao {
+    margin: 0.75rem 0 0;
+    font-family: $font-secondary;
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba($text-primary, 0.75);
+  }
+
+  &__modal-botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    font-family: $font-secondary;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-align: center;
+    color: $color-white;
+    background-color: $color-primary;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: rgba($color-primary, 0.85);
+    }
+  }
+
   &__whatsapp {
     position: fixed;
     right: 1.5rem;
@@ -323,6 +449,24 @@
       bottom: 1rem;
       padding: 0.75rem 1rem;
       font-size: 13px;
+    }
+
+    &__modal {
+      flex-direction: column;
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+
+    &__modal-imagem {
+      flex: 0 0 220px;
+    }
+
+    &__modal-conteudo {
+      padding: 2rem 1.5rem 2.5rem;
+    }
+
+    &__modal-titulo {
+      font-size: 24px;
     }
   }
 }

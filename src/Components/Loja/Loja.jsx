@@ -1,5 +1,9 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import "./Loja.scss";
+
+const NUMERO_WHATSAPP = "555198144446";
+const TEXTO_PERSONALIZACAO =
+  "Esta peça de pronta entrega pode ser adaptada mediante consulta: acabamento, tom da madeira e pequenos ajustes de acordo com disponibilidade. Fale conosco para confirmar a peça exata em exposição.";
 
 const IconeImagem = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -46,13 +50,60 @@ const produtos = [
   { id: 17, categoria: "disponiveis-showroom", nome: "Banco Rústico", material: "Freijó" },
 ];
 
-const LinhaProdutos = ({ produtos }) => {
+const ModalProduto = ({ produto, onFechar }) => {
+  useEffect(() => {
+    const handleTecla = (e) => {
+      if (e.key === "Escape") onFechar();
+    };
+    document.addEventListener("keydown", handleTecla);
+    return () => document.removeEventListener("keydown", handleTecla);
+  }, [onFechar]);
+
+  const mensagem = encodeURIComponent(
+    `Olá! Gostaria de mais informações sobre o produto: ${produto.nome} (${produto.material}).`
+  );
+
+  return (
+    <div className="loja__modal-overlay" onClick={onFechar}>
+      <div className="loja__modal" onClick={(e) => e.stopPropagation()}>
+        <div className="loja__modal-imagem">
+          <IconeImagem />
+        </div>
+        <div className="loja__modal-conteudo">
+          <button
+            type="button"
+            className="loja__modal-fechar"
+            onClick={onFechar}
+            aria-label="Fechar"
+          >
+            ×
+          </button>
+          <h3 className="loja__modal-eyebrow">PRONTA ENTREGA</h3>
+          <h2 className="loja__modal-titulo">{produto.nome}</h2>
+          <span className="loja__modal-material">{produto.material}</span>
+          <h4 className="loja__modal-secao-titulo">PERSONALIZAÇÃO</h4>
+          <p className="loja__modal-descricao">{TEXTO_PERSONALIZACAO}</p>
+          <a
+            className="loja__modal-botao"
+            href={`https://wa.me/${NUMERO_WHATSAPP}?text=${mensagem}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            CONSULTAR DISPONIBILIDADE NO WHATSAPP
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const LinhaProdutos = ({ produtos, onEspiar }) => {
   const gridRef = useRef(null);
   const arrastoRef = useRef({ ativo: false, inicioX: 0, scrollInicial: 0, moveu: false });
 
   const handlePointerDown = (e) => {
     const grid = gridRef.current;
-    if (!grid) return;
+    if (!grid || e.target.closest("button, a")) return;
 
     arrastoRef.current = {
       ativo: true,
@@ -109,7 +160,11 @@ const LinhaProdutos = ({ produtos }) => {
           </div>
           <h4 className="loja__card-titulo">{produto.nome}</h4>
           <span className="loja__card-material">{produto.material}</span>
-          <button type="button" className="loja__card-botao">
+          <button
+            type="button"
+            className="loja__card-botao"
+            onClick={() => onEspiar(produto)}
+          >
             ESPIAR
           </button>
         </div>
@@ -120,6 +175,7 @@ const LinhaProdutos = ({ produtos }) => {
 
 const Loja = () => {
   const [categoriasAtivas, setCategoriasAtivas] = useState([]);
+  const [produtoSelecionado, setProdutoSelecionado] = useState(null);
 
   const contagemPorCategoria = useMemo(() => {
     return categorias.reduce((acc, categoria) => {
@@ -189,7 +245,10 @@ const Loja = () => {
                   </span>
                 </div>
 
-                <LinhaProdutos produtos={produtosDaCategoria} />
+                <LinhaProdutos
+                  produtos={produtosDaCategoria}
+                  onEspiar={setProdutoSelecionado}
+                />
               </div>
             );
           })}
@@ -198,13 +257,20 @@ const Loja = () => {
 
       <a
         className="loja__whatsapp"
-        href="https://wa.me/555198144446"
+        href={`https://wa.me/${NUMERO_WHATSAPP}`}
         target="_blank"
         rel="noreferrer"
       >
         <IconeWhatsApp />
         Fale no WhatsApp
       </a>
+
+      {produtoSelecionado && (
+        <ModalProduto
+          produto={produtoSelecionado}
+          onFechar={() => setProdutoSelecionado(null)}
+        />
+      )}
     </section>
   );
 };
