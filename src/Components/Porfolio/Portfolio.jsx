@@ -117,54 +117,11 @@ const projetos = [
 
 const Portfolio = () => {
   const [filtroAtivo, setFiltroAtivo] = useState("todos");
-  const gridRef = useRef(null);
-  const arrastoRef = useRef({ ativo: false, inicioX: 0, scrollInicial: 0, moveu: false });
 
   const projetosFiltrados =
     filtroAtivo === "todos"
       ? projetos
       : projetos.filter((projeto) => projeto.categoria === filtroAtivo);
-
-  useEffect(() => {
-    if (gridRef.current) {
-      gridRef.current.scrollLeft = 0;
-    }
-  }, [filtroAtivo]);
-
-  const handlePointerDown = (e) => {
-    const grid = gridRef.current;
-    if (!grid) return;
-
-    arrastoRef.current = {
-      ativo: true,
-      inicioX: e.pageX,
-      scrollInicial: grid.scrollLeft,
-      moveu: false,
-    };
-    grid.setPointerCapture(e.pointerId);
-    grid.classList.add("portfolio__grid--arrastando");
-  };
-
-  const handlePointerMove = (e) => {
-    const grid = gridRef.current;
-    const arrasto = arrastoRef.current;
-    if (!grid || !arrasto.ativo) return;
-
-    const delta = e.pageX - arrasto.inicioX;
-    if (Math.abs(delta) > 5) arrasto.moveu = true;
-    grid.scrollLeft = arrasto.scrollInicial - delta;
-  };
-
-  const handlePointerUp = (e) => {
-    const grid = gridRef.current;
-    arrastoRef.current.ativo = false;
-    grid?.classList.remove("portfolio__grid--arrastando");
-    try {
-      grid?.releasePointerCapture(e.pointerId);
-    } catch {
-      // ponteiro já liberado
-    }
-  };
 
   return (
     <section className="portfolio">
@@ -198,14 +155,7 @@ const Portfolio = () => {
         ))}
       </div>
 
-      <div
-        className="portfolio__grid"
-        ref={gridRef}
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerUp}
-        onPointerLeave={handlePointerUp}
-      >
+      <div className="portfolio__grid">
         {projetosFiltrados.map((projeto) => (
           <div className="portfolio__card" key={projeto.id}>
             <div className="portfolio__card-imagem-wrapper">
@@ -213,7 +163,6 @@ const Portfolio = () => {
                 className="portfolio__card-imagem"
                 src={projeto.imagem}
                 alt={projeto.titulo}
-                draggable={false}
               />
             </div>
             <span className="portfolio__card-ambiente">
