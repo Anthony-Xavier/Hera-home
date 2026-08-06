@@ -5,6 +5,7 @@ import Portfolio from "./Pages/Portfolio/Portfolio";
 import Loja from "./Pages/Loja/Loja";
 import NavBar from "./Components/NavBar/NavBar";
 import Footer from "./Components/Footer/Footer";
+import SobMedida from "./Pages/SobMedida/SobMedida";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/portifolio" element={<Portfolio />} />
         <Route path="/loja" element={<Loja />} />
+        <Route path="/sobmedida" element={<SobMedida />} />
       </Routes>
       <Footer />
     </>
