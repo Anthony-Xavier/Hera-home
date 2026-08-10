@@ -67,13 +67,12 @@ const SobMedida = () => {
 
   return (
     <section className="sobmedida">
-      <h2 className="sobmedida__visually-hidden">Sob Medida</h2>
+      <h3 className="sobmedida__eyebrow">SOB MEDIDA</h3>
 
       <div className="sobmedida__grid">
         <div className="sobmedida__left">
           <div className="sobmedida__hero">
-            <span className="sobmedida__eyebrow">Sob medida</span>
-            <h1>Solicitar projeto e orçamento</h1>
+            <h2 className="sobmedida__titulo">Solicitar projeto e orçamento</h2>
             <p>
               Cada móvel sob medida é único — o investimento varia conforme
               tamanho, madeira, ferragens, acabamento, frete e instalação.
@@ -100,7 +99,6 @@ const SobMedida = () => {
             >
               Fale no WhatsApp
             </a>{" "}
-            e envie fotos de referência diretamente na conversa.
           </p>
         </div>
 
