@@ -6,6 +6,8 @@ import Loja from "./Pages/Loja/Loja";
 import NavBar from "./Components/NavBar/NavBar";
 import Footer from "./Components/Footer/Footer";
 import SobMedida from "./Pages/SobMedida/SobMedida";
+import Blog from "./Pages/Blog/Blog";
+import BlogArtigo from "./Pages/BlogArtigo/BlogArtigo";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path="/portifolio" element={<Portfolio />} />
         <Route path="/loja" element={<Loja />} />
         <Route path="/sobmedida" element={<SobMedida />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/como-escolher-madeira" element={<BlogArtigo />} />
       </Routes>
       <Footer />
     </>

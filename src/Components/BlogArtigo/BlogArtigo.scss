@@ -1,0 +1,151 @@
+@use "../../styles/variables" as *;
+
+.blog-artigo {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 6rem;
+  background-color: $color-white;
+
+  &__conteudo {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  &__eyebrow {
+    margin: 0;
+    font-family: $font-secondary;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $text-accent;
+  }
+
+  &__titulo {
+    margin: 0.75rem 0 0;
+    font-family: $font-primary;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 1.2;
+    color: $text-primary;
+  }
+
+  &__foto {
+    margin-top: 2.5rem;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  &__foto-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  &__intro {
+    margin: 2rem 0 0;
+    font-family: $font-secondary;
+    font-size: 17px;
+    line-height: 1.8;
+    color: $text-primary;
+  }
+
+  &__secao {
+    margin-top: 2.5rem;
+  }
+
+  &__secao-titulo {
+    margin: 0;
+    font-family: $font-primary;
+    font-weight: 400;
+    font-size: 26px;
+    color: $text-primary;
+  }
+
+  &__secao-texto {
+    margin: 0.75rem 0 0;
+    font-family: $font-secondary;
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba($text-primary, 0.8);
+  }
+
+  &__cta {
+    margin-top: 3rem;
+    padding: 2.5rem 1.5rem;
+    border-radius: 18px;
+    background-color: $color-secondary;
+    text-align: center;
+  }
+
+  &__cta-texto {
+    margin: 0;
+    font-family: $font-primary;
+    font-weight: 400;
+    font-size: 22px;
+    color: $text-primary;
+  }
+
+  &__cta-botao {
+    display: inline-block;
+    margin-top: 1.25rem;
+    padding: 1rem 1.75rem;
+    border-radius: 12px;
+    background-color: $color-primary;
+    color: $color-white;
+    font-family: $font-secondary;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition:
+      background-color 0.2s ease,
+      transform 0.2s ease;
+
+    &:hover,
+    &:focus {
+      background-color: $text-accent;
+      transform: translateY(-1px);
+    }
+  }
+
+  &__voltar {
+    display: inline-block;
+    margin-top: 2.5rem;
+    font-family: $font-secondary;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $text-primary;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+
+    &:hover,
+    &:focus {
+      color: $text-accent;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .blog-artigo {
+    padding: 3.5rem 1.25rem 4rem;
+
+    &__titulo {
+      font-size: 26px;
+    }
+
+    &__secao-titulo {
+      font-size: 22px;
+    }
+
+    &__cta-texto {
+      font-size: 19px;
+    }
+  }
+}
