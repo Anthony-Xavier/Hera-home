@@ -9,6 +9,7 @@ import SobMedida from "./Pages/SobMedida/SobMedida";
 import Blog from "./Pages/Blog/Blog";
 import BlogArtigo from "./Pages/BlogArtigo/BlogArtigo";
 import Sobre from "./Pages/Sobre/Sobre";
+import Contato from "./Pages/Contato/Contato";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/como-escolher-madeira" element={<BlogArtigo />} />
         <Route path="/sobre" element={<Sobre />} />
+        <Route path="/contato" element={<Contato />} />
       </Routes>
       <Footer />
     </>
