@@ -173,5 +173,12 @@
     &__form {
       padding: 1.25rem;
     }
+
+    &__campo {
+      input,
+      textarea {
+        font-size: 1rem;
+      }
+    }
   }
 }
