@@ -1,6 +1,11 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import "./Loja.scss";
 
+import imgAreaExterna1 from "../../assets/img/Loja-areaExerna.jpeg";
+import imgAreaExterna2 from "../../assets/img/Loja-areaExerna2.jpeg";
+
+const IMAGENS_AREA_EXTERNA = [imgAreaExterna1, imgAreaExterna2];
+
 const NUMERO_WHATSAPP = "555198144446";
 const TEXTO_PERSONALIZACAO =
   "Esta peça de pronta entrega pode ser adaptada mediante consulta: acabamento, tom da madeira e pequenos ajustes de acordo com disponibilidade. Fale conosco para confirmar a peça exata em exposição.";
@@ -48,9 +53,19 @@ const produtos = [
   { id: 15, categoria: "pecas-decoracao", nome: "Bandeja Cedro", material: "Imbuia" },
   { id: 16, categoria: "disponiveis-showroom", nome: "Mesa lateral Delfos", material: "Imbuia" },
   { id: 17, categoria: "disponiveis-showroom", nome: "Banco Rústico", material: "Freijó" },
+  {
+    id: 18,
+    categoria: "disponiveis-showroom",
+    nome: "Área Externa Completa",
+    material: "Itaúba",
+    imagens: IMAGENS_AREA_EXTERNA,
+  },
 ];
 
 const ModalProduto = ({ produto, onFechar }) => {
+  const [imagemAtiva, setImagemAtiva] = useState(0);
+  const imagens = produto.imagens ?? [];
+
   useEffect(() => {
     const handleTecla = (e) => {
       if (e.key === "Escape") onFechar();
@@ -67,7 +82,30 @@ const ModalProduto = ({ produto, onFechar }) => {
     <div className="loja__modal-overlay" onClick={onFechar}>
       <div className="loja__modal" onClick={(e) => e.stopPropagation()}>
         <div className="loja__modal-imagem">
-          <IconeImagem />
+          {imagens.length > 0 ? (
+            <>
+              <img src={imagens[imagemAtiva]} alt={produto.nome} />
+              {imagens.length > 1 && (
+                <div className="loja__modal-miniaturas">
+                  {imagens.map((imagem, indice) => (
+                    <button
+                      key={imagem}
+                      type="button"
+                      className={`loja__modal-miniatura${
+                        indice === imagemAtiva ? " loja__modal-miniatura--ativa" : ""
+                      }`}
+                      onClick={() => setImagemAtiva(indice)}
+                      aria-label={`Ver foto ${indice + 1} de ${produto.nome}`}
+                    >
+                      <img src={imagem} alt="" />
+                    </button>
+                  ))}
+                </div>
+              )}
+            </>
+          ) : (
+            <IconeImagem />
+          )}
         </div>
         <div className="loja__modal-conteudo">
           <button
@@ -156,7 +194,11 @@ const LinhaProdutos = ({ produtos, onEspiar }) => {
       {produtos.map((produto) => (
         <div className="loja__card" key={produto.id}>
           <div className="loja__card-imagem">
-            <IconeImagem />
+            {produto.imagens?.length > 0 ? (
+              <img src={produto.imagens[0]} alt={produto.nome} />
+            ) : (
+              <IconeImagem />
+            )}
           </div>
           <h4 className="loja__card-titulo">{produto.nome}</h4>
           <span className="loja__card-material">{produto.material}</span>
