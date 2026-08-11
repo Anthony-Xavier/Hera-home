@@ -16,7 +16,7 @@ const NavBar = () => {
 
   return (
     <header className="header">
-      <h1 className="header__titulo">Hera Home</h1>
+      <p className="header__titulo">Hera Home</p>
 
       <button
         className={`header__toggle ${isOpen ? "is-active" : ""}`}

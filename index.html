@@ -1,16 +1,73 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#190f0a" />
+    <meta name="robots" content="index, follow" />
+
+    <title>Hera Home | Marcenaria e móveis de madeira sob medida</title>
+    <meta
+      name="description"
+      content="Marcenaria artesanal em Garopaba, SC. Móveis de madeira maciça sob medida — freijó, carvalho, imbuia — e peças de pronta entrega no showroom."
+    />
+    <link rel="canonical" href="https://www.herahome.com.br/" />
+
+    <!--
+      Como este site é renderizado no cliente (sem SSR), robôs que não
+      executam JavaScript (ex.: prévia de link do WhatsApp) sempre veem
+      estas tags padrão, independente da página compartilhada. O Google e
+      o Bing, que renderizam JavaScript, recebem os valores específicos de
+      cada página via componente <Seo> (src/Components/Seo/Seo.jsx).
+    -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hera Home" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Hera Home | Marcenaria e móveis de madeira sob medida" />
+    <meta
+      property="og:description"
+      content="Marcenaria artesanal em Garopaba, SC. Móveis de madeira maciça sob medida — freijó, carvalho, imbuia — e peças de pronta entrega no showroom."
+    />
+    <meta property="og:url" content="https://www.herahome.com.br/" />
+    <meta property="og:image" content="https://www.herahome.com.br/og-image.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Hera Home | Marcenaria e móveis de madeira sob medida" />
+    <meta
+      name="twitter:description"
+      content="Marcenaria artesanal em Garopaba, SC. Móveis de madeira maciça sob medida — freijó, carvalho, imbuia — e peças de pronta entrega no showroom."
+    />
+    <meta name="twitter:image" content="https://www.herahome.com.br/og-image.jpg" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Marcellus&display=swap"
       rel="stylesheet"
     />
-    <title>hera-home</title>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FurnitureStore",
+        "name": "Hera Home",
+        "image": "https://www.herahome.com.br/og-image.jpg",
+        "url": "https://www.herahome.com.br/",
+        "telephone": "+555198144446",
+        "email": "contato@herahome.com.br",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Garopaba",
+          "addressRegion": "SC",
+          "addressCountry": "BR"
+        },
+        "sameAs": ["https://www.instagram.com/herahome_design/"],
+        "priceRange": "$$"
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

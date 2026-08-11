@@ -241,7 +241,7 @@ const Loja = () => {
     <section className="loja">
       <div className="loja__header">
         <h3 className="loja__eyebrow">PRONTA ENTREGA</h3>
-        <h2 className="loja__titulo">Peças disponíveis no showroom</h2>
+        <h1 className="loja__titulo">Peças disponíveis no showroom</h1>
         <p className="loja__subtitulo">
           Móveis finalizados, prontos para entrega imediata. Disponibilidade
           limitada — consulte pelo WhatsApp.

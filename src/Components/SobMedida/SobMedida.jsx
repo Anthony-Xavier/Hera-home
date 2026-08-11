@@ -72,7 +72,7 @@ const SobMedida = () => {
       <div className="sobmedida__grid">
         <div className="sobmedida__left">
           <div className="sobmedida__hero">
-            <h2 className="sobmedida__titulo">Solicitar projeto e orçamento</h2>
+            <h1 className="sobmedida__titulo">Solicitar projeto e orçamento</h1>
             <p>
               Cada móvel sob medida é único — o investimento varia conforme
               tamanho, madeira, ferragens, acabamento, frete e instalação.

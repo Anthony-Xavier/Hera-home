@@ -54,7 +54,7 @@ const Blog = () => {
     <section className="blog">
       <div className="blog__cabecalho">
         <h3 className="blog__eyebrow">BLOG DAS MADEIRAS</h3>
-        <h2 className="blog__titulo">Guias para conhecer e escolher madeira</h2>
+        <h1 className="blog__titulo">Guias para conhecer e escolher madeira</h1>
         <p className="blog__subtitulo">
           Tudo o que você precisa saber antes de decidir a madeira do seu
           próximo móvel sob medida.

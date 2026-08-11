@@ -40,7 +40,7 @@ const Contato = () => {
     <section className="contato">
       <div className="contato__cabecalho">
         <h3 className="contato__eyebrow">CONTATO</h3>
-        <h2 className="contato__titulo">Fale com a gente</h2>
+        <h1 className="contato__titulo">Fale com a gente</h1>
         <p className="contato__subtitulo">
           Dúvidas, orçamentos ou parcerias — escolha o canal que preferir ou
           mande uma mensagem pelo formulário.

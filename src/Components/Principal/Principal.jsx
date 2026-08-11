@@ -6,14 +6,18 @@ const Principal = () => {
   return (
     <div className="principal">
       <div className="principal__imagem-wrapper">
-        <img className="principal__imagem" src={imgMenu} alt="Principal" />
+        <img
+          className="principal__imagem"
+          src={imgMenu}
+          alt="Móvel de madeira maciça sob medida feito pela Hera Home"
+        />
 
         <div className="principal__conteudo">
-          <h2 className="principal__titulo">
+          <h1 className="principal__titulo">
             Madeira. <span>Design</span>. História.
             <br />
             Móveis feitos para atravessar gerações.
-          </h2>
+          </h1>
         </div>
       </div>
       <div className="principal__botoes">

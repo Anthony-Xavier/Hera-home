@@ -107,9 +107,9 @@ const Portfolio = () => {
     <section className="portfolio">
       <div className="portfolio__cabecalho">
         <h3 className="portfolio__titulos portfolio__titulos--h3">PORTFÓLIO</h3>
-        <h2 className="portfolio__titulos portfolio__titulos--h2">
+        <h1 className="portfolio__titulos portfolio__titulos--h2">
           Projetos sob medida por ambiente
-        </h2>
+        </h1>
         <p className="portfolio__subtitulo">
           Uma seleção de projetos executados pela Hera Home — da concepção ao
           acabamento final.
@@ -140,7 +140,7 @@ const Portfolio = () => {
               <img
                 className="portfolio__card-imagem"
                 src={projeto.imagem}
-                alt={projeto.titulo}
+                alt={`Projeto de marcenaria sob medida — ${projeto.ambiente}`}
               />
             </div>
             <span className="portfolio__card-ambiente">
