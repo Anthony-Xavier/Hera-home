@@ -2,11 +2,18 @@ import "./Portfolio.scss";
 
 import React, { useState } from "react";
 
-import imgCozinha from "../../assets/img/Cozinha-menu.png";
-import imgQuarto from "../../assets/img/Quarto-menu.png";
-import imgSalaDeJantar from "../../assets/img/SalaDeJantara-menu.png";
 import imgGenerico from "../../assets/img/Img-menu.png";
 import imgHomeOffice from "../../assets/img/HomeBlog.jpeg";
+import imgSala1 from "../../assets/img/Sala.jpeg";
+import imgSala2 from "../../assets/img/Sala2.jpeg";
+import imgSala3 from "../../assets/img/Sala3.jpeg";
+import imgQuarto1 from "../../assets/img/Quarto.jpeg";
+import imgQuarto2 from "../../assets/img/Quarto2.jpeg";
+import imgCozinha1 from "../../assets/img/Cozinha.jpeg";
+import imgCozinha2 from "../../assets/img/Cozinha2.jpeg";
+import imgCozinha3 from "../../assets/img/Cozinha3.jpeg";
+import imgCozinha4 from "../../assets/img/Cozinha4.jpeg";
+import imgBanheiro from "../../assets/img/Banheiro.jpeg";
 
 const filtros = [
   { chave: "todos", rotulo: "Todos" },
@@ -14,6 +21,7 @@ const filtros = [
   { chave: "quartos", rotulo: "Quartos" },
   { chave: "home-office", rotulo: "Home Office" },
   { chave: "cozinhas", rotulo: "Cozinhas" },
+  { chave: "banheiros", rotulo: "Banheiros" },
 ];
 
 const projetos = [
@@ -21,97 +29,69 @@ const projetos = [
     id: 1,
     categoria: "salas",
     ambiente: "Sala de Estar",
-    titulo: "Painel de TV suspenso",
-    material: "Freijó",
-    imagem: imgSalaDeJantar,
+    imagem: imgSala1,
   },
   {
     id: 2,
     categoria: "salas",
     ambiente: "Sala de Estar",
-    titulo: "Rack baixo sob medida",
-    material: "Carvalho",
-    imagem: imgGenerico,
+    imagem: imgSala2,
   },
   {
     id: 3,
     categoria: "salas",
     ambiente: "Sala de Jantar",
-    titulo: "Buffet com portas ripadas",
-    material: "Imbuia",
-    imagem: imgSalaDeJantar,
+
+    imagem: imgSala3,
   },
   {
     id: 4,
-    categoria: "quartos",
-    ambiente: "Quarto",
-    titulo: "Guarda-roupa de canto",
-    material: "Imbuia",
-    imagem: imgQuarto,
+    categoria: "home-office",
+    ambiente: "Home Office",
+
+    imagem: imgQuarto1,
   },
   {
     id: 5,
     categoria: "quartos",
     ambiente: "Quarto",
-    titulo: "Cabeceira estofada",
-    material: "Freijó",
-    imagem: imgQuarto,
-  },
-  {
-    id: 6,
-    categoria: "quartos",
-    ambiente: "Quarto",
-    titulo: "Criado-mudo suspenso",
-    material: "Carvalho",
-    imagem: imgQuarto,
-  },
-  {
-    id: 7,
-    categoria: "home-office",
-    ambiente: "Home Office",
-    titulo: "Estante biblioteca",
-    material: "Carvalho",
-    imagem: imgHomeOffice,
-  },
-  {
-    id: 8,
-    categoria: "home-office",
-    ambiente: "Home Office",
-    titulo: "Mesa de trabalho sob medida",
-    material: "Freijó",
-    imagem: imgGenerico,
-  },
-  {
-    id: 9,
-    categoria: "home-office",
-    ambiente: "Home Office",
-    titulo: "Painel organizador",
-    material: "Imbuia",
-    imagem: imgHomeOffice,
+
+    imagem: imgQuarto2,
   },
   {
     id: 10,
     categoria: "cozinhas",
     ambiente: "Cozinha",
-    titulo: "Marcenaria de cozinha integrada",
-    material: "Freijó",
-    imagem: imgCozinha,
+
+    imagem: imgCozinha1,
   },
   {
     id: 11,
     categoria: "cozinhas",
     ambiente: "Cozinha",
-    titulo: "Ilha gourmet sob medida",
-    material: "Carvalho",
-    imagem: imgCozinha,
+
+    imagem: imgCozinha2,
   },
   {
     id: 12,
     categoria: "cozinhas",
     ambiente: "Cozinha",
-    titulo: "Armário aéreo com iluminação",
-    material: "Imbuia",
-    imagem: imgCozinha,
+
+    imagem: imgCozinha3,
+  },
+  {
+    id: 13,
+    categoria: "cozinhas",
+    ambiente: "Cozinha",
+
+    imagem: imgCozinha4,
+  },
+  {
+    id: 14,
+    categoria: "banheiros",
+    ambiente: "Banheiro",
+
+    imagem: imgBanheiro,
   },
 ];
 
@@ -126,9 +106,7 @@ const Portfolio = () => {
   return (
     <section className="portfolio">
       <div className="portfolio__cabecalho">
-        <h3 className="portfolio__titulos portfolio__titulos--h3">
-          PORTFÓLIO
-        </h3>
+        <h3 className="portfolio__titulos portfolio__titulos--h3">PORTFÓLIO</h3>
         <h2 className="portfolio__titulos portfolio__titulos--h2">
           Projetos sob medida por ambiente
         </h2>
@@ -167,10 +145,6 @@ const Portfolio = () => {
             </div>
             <span className="portfolio__card-ambiente">
               {projeto.ambiente.toUpperCase()}
-            </span>
-            <h4 className="portfolio__card-titulo">{projeto.titulo}</h4>
-            <span className="portfolio__card-material">
-              {projeto.material}
             </span>
           </div>
         ))}
