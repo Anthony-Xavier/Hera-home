@@ -8,7 +8,7 @@
   align-items: center;
   padding: 2rem 1.5rem 5rem;
   margin-top: 4rem;
-  background-color: $color-white;
+  background-color: $color-bege-claro;
   border-radius: 100px 100px 0px 0px;
 
   &__header {
@@ -159,7 +159,7 @@
     border: none;
     cursor: pointer;
     background-color: $color-destaque;
-    color: $text-primary;
+    color: $color-bege-claro;
     transition: transform 0.25s ease;
 
     &:hover {
