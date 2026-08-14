@@ -4,8 +4,8 @@ import "./Depoimento.scss";
 const depoimentos = [
   {
     texto:
-      "A Hera Home transformou nossa sala. Cada detalhe foi pensado, do veio da madeira ao acabamento das ferragens.",
-    autor: "Renata A. — São Paulo",
+      "Do projeto aos últimos detalhes, tudo pensado com muito carinho e profissionalismo. Parabéns pelo lindo trabalho e por transformar minhas ideias em realidade!",
+    autor: "Adriana Herminia.",
   },
   {
     texto:
@@ -35,9 +35,7 @@ const Depoimento = () => {
         {depoimentos.map((depoimento) => (
           <blockquote className="depoimento__item" key={depoimento.autor}>
             <p className="depoimento__item-texto">“{depoimento.texto}”</p>
-            <cite className="depoimento__item-autor">
-              {depoimento.autor}
-            </cite>
+            <cite className="depoimento__item-autor">{depoimento.autor}</cite>
           </blockquote>
         ))}
       </div>

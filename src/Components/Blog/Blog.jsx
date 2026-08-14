@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Blog.scss";
 import imgMadeiras from "../../assets/img/HomeBlog.jpeg";
-import imgQuarto from "../../assets/img/Quarto-menu.png";
+import imgCaravalhoVsImbuia from "../../assets/img/CarvalhovsImbuia.png";
+import imgFreijó from "../../assets/img/Freijómedida.png";
 import imgCozinha from "../../assets/img/Cozinha-menu.png";
 import imgSalaDeJantar from "../../assets/img/SalaDeJantara-menu.png";
 import imgBanheiro from "../../assets/img/Banheiro-menu.png";
@@ -15,7 +16,7 @@ const posts = [
     titulo: "Freijó: a madeira mais versátil para móveis sob medida",
     texto:
       "Por que o freijó é a escolha mais comum em projetos residenciais de alto padrão.",
-    imagem: imgQuarto,
+    imagem: imgFreijó,
   },
   {
     id: 2,
@@ -23,14 +24,7 @@ const posts = [
     titulo: "Carvalho vs. Imbuia: qual combina com o seu ambiente",
     texto:
       "Diferenças de cor, veio e durabilidade entre duas das madeiras nobres mais usadas.",
-    imagem: imgCozinha,
-  },
-  {
-    id: 3,
-    categoria: "SUSTENTABILIDADE",
-    titulo: "Madeira de demolição: história e sustentabilidade",
-    texto: "Como peças de demolição ganham nova vida em móveis exclusivos.",
-    imagem: imgSalaDeJantar,
+    imagem: imgCaravalhoVsImbuia,
   },
   {
     id: 4,
@@ -38,14 +32,6 @@ const posts = [
     titulo: "Como cuidar de móveis de madeira maciça",
     texto: "Óleo, limpeza e cuidados para preservar o acabamento por décadas.",
     imagem: imgBanheiro,
-  },
-  {
-    id: 5,
-    categoria: "MATERIAIS",
-    titulo: "Ferragens importadas: por que fazem diferença",
-    texto:
-      "O papel de corrediças e dobradiças na durabilidade de um móvel sob medida.",
-    imagem: imgGenerico,
   },
 ];
 
@@ -77,8 +63,8 @@ const Blog = () => {
           </h2>
           <p className="blog__conteudo-texto">
             Um guia prático sobre freijó, carvalho, imbuia, ipê e madeira de
-            demolição — durabilidade, aparência, custo e o melhor uso para
-            cada ambiente.
+            demolição — durabilidade, aparência, custo e o melhor uso para cada
+            ambiente.
           </p>
           <span className="blog__conteudo-link">Ler artigo completo</span>
         </div>
