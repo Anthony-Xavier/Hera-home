@@ -5,17 +5,17 @@ const depoimentos = [
   {
     texto:
       "Do projeto aos últimos detalhes, tudo pensado com muito carinho e profissionalismo. Parabéns pelo lindo trabalho e por transformar minhas ideias em realidade!",
-    autor: "Adriana Herminia.",
+    autor: "Adriana Herminia. - Férias em Garopaba",
   },
   {
     texto:
-      "Encomendamos uma mesa sob medida e o resultado superou qualquer expectativa. Atendimento atencioso do início ao fim.",
-    autor: "Marcos T. — Curitiba",
+      "A HeraHome além de notória qualidade em todo seu trabalho, preencheu todos os meus requisitos, tornando meu móvel único, com muito requinte e exclusividade. Nota 10.",
+    autor: "Neca - o Sexto Sabor ,Porto Alegre",
   },
   {
     texto:
       "Peças que parecem ter alma. Nossa casa ganhou outro aconchego depois da reforma com a Hera Home.",
-    autor: "Beatriz L. — Belo Horizonte",
+    autor: "Beatriz L. — Garopaba",
   },
 ];
 
