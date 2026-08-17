@@ -45,8 +45,11 @@
   }
 
   &__card-botao {
+    display: block;
     width: 100%;
+    box-sizing: border-box;
     margin-top: 0.5rem;
+    text-decoration: none;
     padding: 1rem 1.5rem;
     font-family: $font-secondary;
     font-size: 14px;
